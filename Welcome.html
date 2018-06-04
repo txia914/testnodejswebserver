@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<style>
+.city {
+   float: left;
+   margin: 10px;
+   padding: 10px;
+   max-width: 300px;
+   height: 300px;
+   border: 1px solid black;
+}   
+</style>
+</head>
+<body>
+
+
+<h1><span lang="de"> Kraeutertreppe Bewaesserungsprogramm</span></h1>
+    
+    <form action="/Welcome.html" method="get" id="nameform">
+        SSID : <input type="text" name="fname"><br>
+        Password : <input type="text" name="lname"><br>
+    </form>
+    <button type="submit" form="nameform" value="Soft Access Point Verbinden">Submit</button>
+
+
+    <p>
+        <button type="button"
+                onclick="document.getElementById('ShowDateAndTime').innerHTML = Date();	">
+            Click me to display Date and<span lang="de"> </span>Time<span lang="de">
+            </span>
+        </button>
+    </p>
+<p id="ShowDateAndTime"></p>
+
+
+<button autofocus onclick="location.href = 'https://www.google.com/search?q=wetter+karlsruhe';" id="WetterButton" class="float-left submit-button" >Click me to get Wetter Information</button>
+
+<h2><span lang="de">I am Kitty, your Kraeutertreppe keeper. </span></h2>
+
+<div class="city">
+  <h2><span lang="de">1. Topf&nbsp;&nbsp;&nbsp; Petersilie</span></h2>
+  <p><span lang="de">Erdfreuchte Information</span></p>
+  <p><span lang="de">Die beliebe Kraeuter in UK.</span><!--It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.-->  </p>
+  	<p><button type="button" autofocus onclick="alert('Wasser Ventil aufgemacht!')">Wasser Ventil Aufmachen</button>&nbsp;</p>
+		<p><button type="button" autofocus onclick="alert('Wasser Ventil zugemacht!')">Wasser Ventil Zumachen</button>&nbsp;</p>
+			<p><button type="button" autofocus onclick="alert('Von Wann bis Wann')">Zeitplan</button>&nbsp;</p>
+</div>
+
+<div class="city">
+  <h2><span lang="de">2. Topf&nbsp;&nbsp;&nbsp; Dill</span></h2>
+  <p><span lang="de">Erdfreuchte Information</span></p> 
+  <p><span lang="de">Die beliebe Kraeuter in France.</span><!--The Paris area is one of the largest population centers in Europe, with more than 12 million inhabitants.--></p>
+  	<p><button type="button" onclick="alert('Wasser Ventil aufgemacht!')">Wasser Ventil Aufmachen</button>&nbsp;</p>
+		<p><button type="button" onclick="alert('Wasser Ventil zugemacht!')">Wasser Ventil Zumachen</button>&nbsp;</p>
+
+</div>
+
+<div class="city">
+  <h2><span lang="de">3. Topf&nbsp;&nbsp;&nbsp; Basilikum</span></h2>
+  <p><span lang="de">Erdfreuchte Information</span></p>
+  <p><span lang="de">Die beliebe Kraeuter in Japan.</span><!--It is the center of the Greater Tokyo Area, and the most populous metropolitan area in the world.--></p>
+	<p><button type="button" onclick="alert('Wasser Ventil aufgemacht!')">Wasser Ventil Aufmachen</button>&nbsp;</p>
+		<p><button type="button" onclick="alert('Wasser Ventil zugemacht!')">Wasser Ventil Zumachen</button>&nbsp;</p>
+</div>
+
+<div class="city">
+  <h2><span lang="de">Einstellung</span></h2>
+  <p><span lang="de">Erdfreuchte Information</span></p>
+	<p><span lang="de">Wasser Menge</span></p>
+	<p><span lang="de">Nachrichten Erinnerung</span></p>
+ <!-- <p>New York is an important center for international diplomacy and has been described as the cultural and financial capital of the world.</p>-->
+</div>
+
+<form method="post">
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+var name=document.getElementById("name").value;
+var address= document.getElementById("address").value;
+var age= document.getElementById("age").value;
+
+$.ajax({
+      type:"GET",
+      url:"http://hostname/projectfolder/webservicename.php?callback=jsondata&web_name="+name+"&web_address="+address+"&web_age="+age,
+      crossDomain:true,
+      dataType:'jsonp',
+      success: function jsondata(data)
+           {
+
+            var parsedata=JSON.parse(JSON.stringify(data));
+            var logindata=parsedata["Status"];
+
+            if("sucess"==logindata)
+            {   
+                alert("success");
+            }
+            else
+            {
+                alert("failed");
+            }
+          }  
+    }); 
+</script>
+
+</body>
+</html>
